@@ -21,7 +21,7 @@ Design and analysis of combinational and sequential logic circuits including cou
 **Folder:** `digital_logic_labs`
 
 ---
-
+			
 ### Circuit Analysis & Electronics Labs
 Hands-on laboratory projects involving resistive networks, AC/DC circuits, diodes, rectifiers, amplifiers, and measurement using oscilloscopes and function generators.
 
