@@ -1,9 +1,3 @@
-//////////////////////////////////////////////////////// PROJECT 1 //////////////////////////////////////////////////////////////////////////////////////////
-
-
-//use diff -w output.txt /mnt/ee259dir/tools/pro_1/out_1_expected_1.txt 
-
-//include "sample_p0.h" not this changed to the bottom one
 #include "/mnt/ee259dir/tools/pro_0/sample_p0.h"
 
 // we use an additional file for exam grades:
