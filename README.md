@@ -1,78 +1,68 @@
 # Electrical Engineering Portfolio – Keven Diab
 
-Electrical Engineering (Bachelor of Engineering) student at The City College of New York (ABET accredited) with hands-on experience in circuit analysis, digital logic, embedded systems, and software development. This portfolio showcases academic, laboratory, and personal projects with an emphasis on practical engineering design and implementation.
+I’m an Electrical Engineering student at The City College of New York, building hands-on projects across circuits, digital logic, and hardware systems.
 
-This repository contains selected projects demonstrating:
+This repository showcases a mix of lab work and personal projects where I designed, tested, and debugged real systems — from digital clocks and amplifiers to software and UI-based work.
 
-- Circuit analysis, simulation, and laboratory measurements  
-- Digital logic, timing circuits, and hardware implementation  
-- Embedded systems and hardware-focused engineering  
-- Power electronics and regulated power supplies  
-- C++ and software-based engineering projects  
-- Engineering documentation, testing, and troubleshooting  
-
----
-
-## Projects
-
-### Digital & Logic Circuits (Lab & Academic)
-Design and analysis of combinational and sequential logic circuits including counters, flip-flops, timing circuits, and laboratory-tested digital systems.
-
-**Folder:** `digital_logic_labs`
-
----
-			
-### Circuit Analysis & Electronics Labs
-Hands-on laboratory projects involving resistive networks, AC/DC circuits, diodes, rectifiers, amplifiers, and measurement using oscilloscopes and function generators.
-
-**Folder:** `electronics_labs`
+## What you'll find here
+- Circuit design and testing (AC/DC circuits, amplifiers, op-amps)
+- Digital logic systems (counters, timing circuits, clock design)
+- Hardware-based projects and system integration
+- C++ and Python projects
+- Engineering lab reports and real experimental results
 
 ---
 
-### Embedded & Hardware Projects
-Hardware-oriented projects focusing on system integration, power management, and real-world electrical design constraints.
+## Featured Projects
 
-**Folder:** `embedded_projects`
+### 🕒 Digital Clock (EE Lab Final Project)
+Designed and built a digital clock system that tracks seconds up to days using timing circuits and digital logic.
 
----
-
-### C++ Projects
-Software projects written in C++ demonstrating problem-solving, data structures, and engineering-oriented programming.
-
-**Folder:** `cpp_projects`
+- Implemented counters and timing control using ICs  
+- Tested and verified behavior using lab instruments  
+- Includes lab report and demo video  
 
 ---
 
-### Regulated Power Supply
-Design, simulation, and hardware verification of regulated DC power supplies, including load regulation and ripple analysis.
+### 🔊 Amplifier Design (EE Lab Project)
+Built and tested an audio amplifier circuit and analyzed its performance.
 
-**Folder:** `power_supply_project`
-
----
-
-### Website Project (Code Only)
-Personal website developed using HTML, CSS, and JavaScript. This repository contains the source code (not yet deployed to a custom domain).
-
-**Folder:** `website_code`
+- Worked with analog components and signal amplification  
+- Measured input/output behavior  
+- Includes demo video and explanation  
 
 ---
 
-## Project Structure
+### 🧠 Smart Glasses Capstone (Concept + Website)
+Designed a concept for wearable “glasses as a computer” controlled through head gestures and hand input.
+
+- Focus on system design and user interaction  
+- Includes website code and design concepts  
+- Combines hardware + UI/UX thinking  
+
+---
+
+### 💻 Software Projects (C++ / Python)
+Collection of programming projects focused on problem solving and engineering applications.
+
+---
+
+### 🎨 UI/UX & Design Work
+Includes interface designs and concepts that support user interaction in engineering systems.
+
+---
+
+## How Projects Are Organized
 Each project folder may include:
-
-- Technical overview and design objectives  
-- Schematics, block diagrams, or code  
-- Experimental setup and methodology  
-- Measured results and analysis  
-- Supporting documentation (reports, images, simulations)
+- Overview of the system or problem  
+- Design approach and components used  
+- Code, schematics, or diagrams  
+- Test results or demo videos  
+- Notes on challenges and what I learned  
 
 ---
 
-## Focus Areas
-- Electrical circuit design and testing  
-- Digital logic and timing systems  
-- Embedded and hardware-oriented engineering  
-- Power electronics and electrical infrastructure  
-- Software and C++ development for engineering applications  
+## About Me
+I’m especially interested in building systems that combine hardware and user interaction — where electrical engineering meets real-world usability.
 
-More projects will be added as I progress through my degree.
+More projects will be added as I continue building and learning.
