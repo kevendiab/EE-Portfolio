@@ -1,68 +1,84 @@
 # Electrical Engineering Portfolio – Keven Diab
 
-I’m an Electrical Engineering student at The City College of New York, building hands-on projects across circuits, digital logic, and hardware systems.
+I’m an Electrical Engineering student at The City College of New York. This portfolio is a collection of projects I’ve worked on throughout my classes and on my own.
 
-This repository showcases a mix of lab work and personal projects where I designed, tested, and debugged real systems — from digital clocks and amplifiers to software and UI-based work.
+Most of my work is hands-on. I focus on building circuits, testing them, troubleshooting issues, and understanding why things work or don’t work.
 
-## What you'll find here
-- Circuit design and testing (AC/DC circuits, amplifiers, op-amps)
-- Digital logic systems (counters, timing circuits, clock design)
-- Hardware-based projects and system integration
-- C++ and Python projects
-- Engineering lab reports and real experimental results
+---
+
+## What You’ll Find Here
+
+* Circuit design and testing (AC/DC circuits, amplifiers, op-amps)
+* Digital logic systems (counters, timing circuits, clock design)
+* Hardware-based projects and system integration
+* C++ and Python projects
+* Engineering lab reports with real experimental results
+
+Each project folder contains its own README file explaining the project, how it works, and what I learned.
 
 ---
 
 ## Featured Projects
 
-### 🕒 Digital Clock 
-Designed and built a digital clock system that tracks seconds up to days using timing circuits and digital logic.
+### Digital Clock
 
-- Implemented counters and timing control using ICs  
-- Tested and verified behavior using lab instruments  
-- Includes lab report and demo video  
+Folder: `digital_clock/`
 
----
+Built a working digital clock using integrated circuits and logic gates.
 
-### 🔊 Amplifier Design 
-Built and tested an audio amplifier circuit and analyzed its performance.
-
-- Worked with analog components and signal amplification  
-- Measured input/output behavior  
-- Includes demo video and explanation  
+* Designed a system to track seconds, minutes, and hours
+* Used BCD counters, AND gates, and seven-segment displays
+* Troubleshot wiring issues and timing errors to get the system working
+* Includes lab report and demo videos
 
 ---
 
-### 🧠 Smart Glasses Capstone 
-Designed a concept for wearable “glasses as a computer” controlled through head gestures and hand input.
+### Amplifier Design
 
-- Focus on system design and user interaction  
-- Includes website code and design concepts  
-- Combines hardware + UI/UX thinking  
+Folder: `amplifier_project/`
+
+Designed and tested an audio amplifier circuit.
+
+* Worked with analog components and signal amplification
+* Measured and analyzed input/output behavior
+* Includes demo video and explanation
 
 ---
 
-### 💻 Software Projects (C++ / Python)
+### Smart Glasses Capstone
+
+Folder: `website_code/`
+
+Concept for wearable glasses that function as a computer, controlled using head movement and hand input.
+
+* Focused on system design and user interaction
+* Includes website and design work
+* Combines hardware and UI/UX thinking
+
+---
+
+### Software Projects (C++ / Python)
+
+Folder: `coding_projects/`
+
 Collection of programming projects focused on problem solving and engineering applications.
 
 ---
 
-### 🎨 UI/UX & Design Work
-Includes interface designs and concepts that support user interaction in engineering systems.
+### UI/UX and Design Work
 
----
+Folder: `UX/UI_design/`
 
-## How Projects Are Organized
-Each project folder may include:
-- Overview of the system or problem  
-- Design approach and components used  
-- Code, schematics, or diagrams  
-- Test results or demo videos  
-- Notes on challenges and what I learned  
+Interface designs focused on improving user interaction within technical systems.
 
 ---
 
 ## About Me
-I’m especially interested in building systems that combine hardware and user interaction — where electrical engineering meets real-world usability.
 
-More projects will be added as I continue building and learning.
+I’m interested in building systems that combine hardware and user interaction. I like working on projects where I can take something from concept to a working system and figure things out through testing and debugging.
+
+I’m also starting to explore machine learning and neural networks, and how they can connect with hardware systems.
+
+---
+
+More projects will be added as I continue building.
