@@ -15,7 +15,7 @@ This repository showcases a mix of lab work and personal projects where I design
 
 ## Featured Projects
 
-### 🕒 Digital Clock (EE Lab Final Project)
+### 🕒 Digital Clock 
 Designed and built a digital clock system that tracks seconds up to days using timing circuits and digital logic.
 
 - Implemented counters and timing control using ICs  
@@ -24,7 +24,7 @@ Designed and built a digital clock system that tracks seconds up to days using t
 
 ---
 
-### 🔊 Amplifier Design (EE Lab Project)
+### 🔊 Amplifier Design 
 Built and tested an audio amplifier circuit and analyzed its performance.
 
 - Worked with analog components and signal amplification  
@@ -33,7 +33,7 @@ Built and tested an audio amplifier circuit and analyzed its performance.
 
 ---
 
-### 🧠 Smart Glasses Capstone (Concept + Website)
+### 🧠 Smart Glasses Capstone 
 Designed a concept for wearable “glasses as a computer” controlled through head gestures and hand input.
 
 - Focus on system design and user interaction  
