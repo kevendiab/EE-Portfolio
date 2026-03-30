@@ -22,6 +22,8 @@ Each project folder contains its own README file explaining the project, how it 
 
 ### Digital Clock
 
+Folder: `digital_clock/`
+
 Built a working digital clock using integrated circuits and logic gates.
 
 * Designed a system to track seconds, minutes, and hours
@@ -33,6 +35,8 @@ Built a working digital clock using integrated circuits and logic gates.
 
 ### Amplifier Design
 
+Folder: `amplifier_project/`
+
 Designed and tested an audio amplifier circuit.
 
 * Worked with analog components and signal amplification
@@ -42,6 +46,8 @@ Designed and tested an audio amplifier circuit.
 ---
 
 ### Smart Glasses Capstone
+
+Folder: `website_code/`
 
 Concept for wearable glasses that function as a computer, controlled using head movement and hand input.
 
@@ -53,11 +59,15 @@ Concept for wearable glasses that function as a computer, controlled using head 
 
 ### Software Projects (C++ / Python)
 
+Folder: `coding_projects/`
+
 Collection of programming projects focused on problem solving and engineering applications.
 
 ---
 
 ### UI/UX and Design Work
+
+Folder: `UX/UI_design/`
 
 Interface designs focused on improving user interaction within technical systems.
 
