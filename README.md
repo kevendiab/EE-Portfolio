@@ -67,7 +67,7 @@ Collection of programming projects focused on problem solving and engineering ap
 
 ### UI/UX and Design Work
 
-Folder: `design_work/` *(or whatever you name it)*
+Folder: `UI/UX_design/` *(or whatever you name it)*
 
 Interface designs focused on improving user interaction within technical systems.
 
