@@ -85,7 +85,14 @@ Collection of programming projects focused on problem solving and engineering ap
 
 Folder: `ui_ux_design/`
 
-Interface designs focused on improving user interaction within technical systems.
+This project focuses on designing a goal-based platform where users can track and work toward different life goals.
+
+I worked on a refinancing-focused feature that helps users understand their progress and explore different repayment or refinancing options. The goal was not to actually refinance, but to guide users in making better financial decisions through clear visuals and comparisons.
+
+* Designed an interface that tracks progress toward a financial goal
+* Created different scenarios to help users compare repayment options
+* Focused on making complex financial information simple and easy to understand
+* Worked on layout, structure, and user flow to improve usability
 
 ---
 
