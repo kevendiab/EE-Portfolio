@@ -1,84 +1,26 @@
-# Electrical Engineering Portfolio – Keven Diab
+## Smart Glasses Capstone
 
-I’m an Electrical Engineering student at The City College of New York. This portfolio is a collection of projects I’ve worked on throughout my classes and on my own.
+Folder: `smart_glasses_website/`
 
-Most of my work is hands-on. I focus on building circuits, testing them, troubleshooting issues, and understanding why things work or don’t work.
+### Overview
 
----
+This project is a concept and system design for wearable smart glasses that function as a computer using voice and gesture input.
 
-## What You’ll Find Here
+The goal was to explore how a compact hardware system can provide a hands-free computing experience through a near-eye display.
 
-* Circuit design and testing (AC/DC circuits, amplifiers, op-amps)
-* Digital logic systems (counters, timing circuits, clock design)
-* Hardware-based projects and system integration
-* C++ and Python projects
-* Engineering lab reports with real experimental results
+### What I Did
 
-Each project folder contains its own README file explaining the project, how it works, and what I learned.
+* Designed the overall system architecture for the device
+* Selected hardware components such as a Raspberry Pi and display modules
+* Built a website to present the system design and how it works
+* Structured the interaction flow using voice and gesture-based input
 
----
+### Technical Details
 
-## Featured Projects
+* Website built using HTML, CSS, and custom styling
+* Focused on clear layout and user-friendly presentation
+* Includes sections explaining hardware, system behavior, and interaction
 
-### Digital Clock
+### Key Idea
 
-Folder: `digital_clock/`
-
-Built a working digital clock using integrated circuits and logic gates.
-
-* Designed a system to track seconds, minutes, and hours
-* Used BCD counters, AND gates, and seven-segment displays
-* Troubleshot wiring issues and timing errors to get the system working
-* Includes lab report and demo videos
-
----
-
-### Amplifier Design
-
-Folder: `amplifier_project/`
-
-Designed and tested an audio amplifier circuit.
-
-* Worked with analog components and signal amplification
-* Measured and analyzed input/output behavior
-* Includes demo video and explanation
-
----
-
-### Smart Glasses Capstone
-
-Folder: `website_code/`
-
-Concept for wearable glasses that function as a computer, controlled using head movement and hand input.
-
-* Focused on system design and user interaction
-* Includes website and design work
-* Combines hardware and UI/UX thinking
-
----
-
-### Software Projects (C++ / Python)
-
-Folder: `coding_projects/`
-
-Collection of programming projects focused on problem solving and engineering applications.
-
----
-
-### UI/UX and Design Work
-
-Folder: `UX/UI_design/`
-
-Interface designs focused on improving user interaction within technical systems.
-
----
-
-## About Me
-
-I’m interested in building systems that combine hardware and user interaction. I like working on projects where I can take something from concept to a working system and figure things out through testing and debugging.
-
-I’m also starting to explore machine learning and neural networks, and how they can connect with hardware systems.
-
----
-
-More projects will be added as I continue building.
+This project focuses on combining hardware, software, and user interaction into a single system, similar to how real wearable devices are designed.
