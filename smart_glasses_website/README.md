@@ -21,9 +21,8 @@ The goal was to explore how a compact hardware system can provide a hands-free c
 * Focused on clear layout and user-friendly presentation
 * Includes sections explaining hardware, system behavior, and interaction
 
-
-Folder: `index.html/`
-
 ### Key Idea
 
 This project focuses on combining hardware, software, and user interaction into a single system, similar to how real wearable devices are designed.
+
+File: `index.html/`
