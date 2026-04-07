@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dual-Lens Near-Eye Display</title>
+
+  <style>
+  
+  /* =======================
+   AUTO HOVER FOR ALL COMPONENT CARDS
+   ======================= */
+
+#components div[style*="box-shadow"] {
+  transition:
+    transform 0.6s ease,
+    box-shadow 0.6s ease;
+}
+
+#components div[style*="box-shadow"]:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 45px 120px rgba(0,0,0,0.35),
+    0 20px 50px rgba(0,0,0,0.25),
+    0 8px 18px rgba(0,0,0,0.2) !important;
+}
+
+  
+  /* =======================
+   STEPS BOX ANIMATION
+   ======================= */
+
+.steps-box {
+  position: relative;
+  background: #f4f5f7;
+  border-radius: 30px;
+  padding: 70px 64px;
+  overflow: hidden;
+
+  box-shadow:
+    0 70px 180px rgba(0,0,0,0.65),
+    0 35px 80px rgba(0,0,0,0.55),
+    0 10px 25px rgba(0,0,0,0.4);
+
+  animation: stepsReveal 1s ease-out forwards;
+
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.steps-box:hover {
+  transform: translateY(-14px) scale(1.01);
+  box-shadow:
+    0 90px 220px rgba(0,0,0,0.55),
+    0 40px 100px rgba(0,0,0,0.45),
+    0 14px 32px rgba(0,0,0,0.35);
+}
+
+.steps-box::before {
+  content: "";
+  position: absolute;
+  inset: 24px;
+  background: #ebedf0;
+  border-radius: 22px;
+  z-index: 0;
+}
+.steps-box::after {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(
+    circle,
+    rgba(0,0,0,0.08),
+    transparent 70%
+  );
+  z-index: 0;
+}
+.steps-box > * {
+  position: relative;
+  z-index: 1;
+}
+@keyframes stepsReveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+  /* =======================
+   STEPS CONTAINER BOX
+   ======================= */
+.steps-box {
+  background: #f5f6f8;
+  border-radius: 28px;
+  padding: 60px 56px;
+  box-shadow:
+    0 45px 110px rgba(0,0,0,0.35),
+    0 18px 40px rgba(0,0,0,0.25);
+}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      background: #f2f3f5;
+      color: #0f1220;
+      scroll-behavior: smooth;
+    }
+
+    /* =======================
+       HERO BACKGROUND
+       ======================= */
+
+    .hero-wrapper {
+      position: relative;
+      background: #0a0a0a;
+      padding-bottom: 190px;
+      overflow: hidden;
+    }
+
+    .hero-wrapper::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+      background-size: 48px 48px;
+      animation: gridMove 18s linear infinite;
+      z-index: 0;
+    }
+
+    /* =======================
+       NAV BAR
+       ======================= */
+
+    header {
+      position: relative;
+      z-index: 2;
+      padding: 18px 72px;
+      background: #000;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav h1 {
+      font-size: 16px;
+      letter-spacing: 1px;
+      color: #fff;
+    }
+
+    .nav ul {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav ul li a {
+      color: #fff;
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    /* =======================
+       HERO TEXT
+       ======================= */
+
+    .hero {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 80px 100px 0;
+      color: #fff;
+      animation: heroFloat 6s ease-in-out infinite;
+    }
+
+    .hero h2 {
+      font-size: 50px;
+      font-weight: 800;
+      margin-bottom: 12px;
+      opacity: 0;
+      animation: heroFadeUp 1s ease-out forwards;
+    }
+
+    .hero h3 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #e5e7eb;
+      opacity: 0;
+      animation: heroFadeUp 1.2s ease-out forwards;
+      animation-delay: 0.1s;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: #c7cbd1;
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0;
+      animation: heroFadeUp 1.4s ease-out forwards;
+      animation-delay: 0.2s;
+    }
+
+    /* =======================
+       FEATURE CARDS
+       ======================= */
+
+    .features {
+      margin-top: -130px;
+      padding: 0 90px 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+      position: relative;
+      z-index: 3;
+    }
+
+    .feature-box {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      border-radius: 22px;
+      padding: 30px;
+      text-align: center;
+      box-shadow:
+        10px 10px 0 rgba(0,0,0,0.12),
+        inset 0 0 18px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+
+    .feature-box:hover {
+      transform: translateY(-10px);
+    }
+
+    .feature-box h4 {
+      font-size: 21px;
+      margin-bottom: 12px;
+      color: #000;
+    }
+
+    .feature-box p {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+    .feature-box {
+  position: relative;
+}
+
+.feature-icon {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 28px;
+  background: white;
+  padding: 6px 10px;
+  border-radius: 50%;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  animation: iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-6px); }
+}
+
+
+    /* =======================
+       WHAT THIS IS
+       ======================= */
+
+    .what-section {
+      background: #f2f3f5;
+      padding: 80px 90px;
+    }
+
+    .what-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .what-text h2 {
+      font-size: 40px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .what-text p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #4b5563;
+      margin-bottom: 20px;
+      max-width: 540px;
+    }
+    .what-image {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.what-image img {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  border-radius: 22px;
+  object-fit: contain;
+  box-shadow:
+    0 30px 70px rgba(0,0,0,0.2),
+    0 10px 22px rgba(0,0,0,0.15);
+}
+
+.image-caption {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #6b7280;
+  text-align: center;
+  max-width: 460px;
+}
+.hero-bar {
+  width: 90px;
+  height: 4px;
+  background: white;
+  margin: 18px auto 26px;
+  animation: pulseLine 2s ease-in-out infinite;
+}
+
+
+
+    /* =======================
+       ANIMATIONS
+       ======================= */
+
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes heroFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes gridMove {
+      from { background-position: 0 0; }
+      to { background-position: 48px 48px; }
+    }
+
+    /* =======================
+       RESPONSIVE
+       ======================= */
+
+    @media (max-width: 1000px) {
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .what-container {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .features {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* =======================
+   FIX COMPONENT TITLE SPACING
+   ======================= */
+
+/* Push cards farther down from titles */
+.hw-section-title {
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Extra buffer so hover never overlaps */
+#components .hw-section-title + div {
+  margin-top: 20px;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO SECTION -->
+  <div class="hero-wrapper">
+
+    <header>
+      <div class="nav">
+        <h1>DUAL-LENS NEAR-EYE DISPLAY</h1>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="hero" id="overview">
+      <h2>Dual-Lens Near-Eye Display</h2>
+      <h3>with Desktop Computing</h3>
+      <div class="hero-bar"></div>
+      <p>
+        A student-built smart glasses prototype that transforms a single-board computer
+        into a wearable, internet-connected desktop controlled by voice and hand gestures.
+      </p>
+      <p style="
+  margin-top: 18px;
+  font-size: 15px;
+  color: #9ca3af;
+  letter-spacing: 1.5px;
+">
+  Designed & Built by <strong style="color:white;">Keven D</strong> and <strong style="color:white;">Jamal A</strong>
+</p>
+
+    </section>
+
+  </div>
+
+<!-- FEATURES -->
+<section class="features">
+
+<div class="feature-box hover-lift">
+    <div class="feature-icon">🌐</div>
+    <h4>Web Browsing</h4>
+    <p>
+      A full Linux desktop environment enables real-time web browsing,
+      allowing access to Google, YouTube, and productivity tools.
+    </p>
+  </div>
+
+  <div class="feature-box">
+    <div class="feature-icon">🎬</div>
+    <h4>Media Playback</h4>
+    <p>
+      Stream and watch online video content directly within a dual-display
+      near-eye viewing system.
+    </p>
+  </div>
+
+  <div class="feature-box">
+    <div class="feature-icon">🧭</div>
+    <h4>Navigation</h4>
+    <p>
+      Access web-based mapping and navigation tools hands-free
+      while remaining aware of your surroundings.
+    </p>
+  </div>
+
+  <div class="feature-box">
+    <div class="feature-icon">✋</div>
+    <h4>Voice & Gesture</h4>
+    <p>
+      Control the desktop interface using spoken commands
+      and camera-based hand gestures.
+    </p>
+  </div>
+
+</section>
+
+  <!-- WHAT THIS IS SECTION -->
+  <section class="what-section">
+    <div class="what-container">
+
+      <!-- LEFT TEXT -->
+      <div class="what-text">
+        <h2>What This Is:</h2>
+
+        <p>
+          This project explores the design and implementation of a wearable
+          near-eye computing system that transforms a single-board computer
+          into a fully functional desktop environment displayed through
+          dual near-eye optics.
+        </p>
+
+        <p>
+          Rather than relying on a phone or laptop, the system presents a
+          hands-free desktop experience that supports common tasks such as
+          browsing, media consumption, and navigation through voice and
+          gesture-based interaction.
+        </p>
+      </div>
+
+      <!-- RIGHT IMAGE -->
+      <div class="what-image">
+        <img
+          src="https://raw.githubusercontent.com/kevendiab/image/b9702a926fe18b069d50cb5889d6cad7f4d7e9b3/Disassembled%20smart%20glasses%20and%20Raspberry%20Pi%20components.png"
+          alt="Disassembled smart glasses and Raspberry Pi components"
+        />
+        <div class="image-caption">
+          Early prototype hardware layout illustrating core components and system architecture.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT US SECTION -->
+  <section style="padding: 70.4px 88px; background: #ffffff;" id="about">
+    <div style="max-width: 1232px; margin: 0 auto;">
+      
+      <h2 style="font-size: 38.72px; font-weight: 800; margin-bottom: 35.2px; color: #000; text-align: center;">
+        About Us
+      </h2>
+
+      <div style="display: flex; align-items: center; gap: 70.4px;">
+        
+        <!-- LEFT TEXT -->
+        <div style="flex: 1; text-align: left;">
+          <p style="font-size: 15.84px; line-height: 1.8; color: #4b5563; margin-bottom: 21.12px;">
+            We are Electrical Engineering students at The City College of New York developing a wearable near-eye computing system as part of our senior capstone design project.
+          </p>
+
+          <p style="font-size: 15.84px; line-height: 1.8; color: #4b5563; margin-bottom: 21.12px;">
+            Our work focuses on exploring how compact displays, optical components, and embedded computing can be integrated into a lightweight smart glasses prototype that presents a desktop-style digital interface directly within the user's field of view. Rather than relying on traditional monitors or bulky head-mounted devices, the project aims to investigate a more practical glasses-form wearable for everyday computing tasks.
+          </p>
+
+          <p style="font-size: 15.84px; line-height: 1.8; color: #4b5563;">
+            The system is designed to support hands-free interaction through voice and gesture input while maintaining awareness of the surrounding environment. Through this capstone project, we are examining the challenges of near-eye display integration, power management, and user interaction in wearable systems, while demonstrating the potential of near-eye computing as an accessible and scalable approach to immersive technology.
+          </p>
+        </div>
+
+        <!-- RIGHT LOGOS -->
+        <div style="flex: 0 0 264px; display: flex; flex-direction: column; gap: 35.2px; align-items: center;">
+          <img 
+            src="https://raw.githubusercontent.com/kevendiab/image/6011dfc1614fab36f14aa345be12bcf7fa84666b/ChatGPT%20Image%20Dec%2019%2C%202025%2C%2002_03_13%20PM.png" 
+            alt="Electrical Engineering Logo" 
+            style="width: 100%; max-width: 440px; height: auto;"
+          />
+          <img 
+            src="https://raw.githubusercontent.com/kevendiab/image/217319b4ad5135009042bb0fd323306dd76d55b6/Untitled%20design.png" 
+            alt="CCNY Logo" 
+            style="width: 100%; max-width: 193.6px; height: auto;"
+          />
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HARDWARE COMPONENTS SECTION -->
+  <section style="padding: 70.4px 88px; background: #f2f3f5;" id="components">
+    <div style="max-width: 1232px; margin: 0 auto;">
+      
+      <h2 style="font-size: 38.72px; font-weight: 800; margin-bottom: 52.8px; color: #000000; text-align: center;">
+        Hardware Components Used
+      </h2>
+
+      <!-- Compute & Storage -->
+      <div style="margin-bottom: 70.4px;">
+        <h3 class="hw-section-title">
+          Compute & Storage:
+        </h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 21.12px;">
+          <div style="background: white; padding: 24.64px; border-radius: 21.12px; box-shadow: 0 30.8px 70.4px rgba(0,0,0,0.15), 0 10.56px 21.12px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 14.08px; display: flex; align-items: center; justify-content: center; margin-bottom: 14.08px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/80e3fb62659e045215ac5b7920040c43d6a12a9d/81XB4LUuFOL-removebg-preview.png" alt="Raspberry Pi" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 17.6px; font-weight: 700; margin-bottom: 8.8px; color: #000;">Raspberry Pi 5 (4–8 GB RAM)</h4>
+            <p style="font-size: 13.2px; color: #6b7280; line-height: 1.6;">The Raspberry Pi 5 functions as the central compute unit for the smart glasses system. It runs a Linux-based operating system, generates the video output sent to the near-eye displays, and processes input from connected peripherals such as the camera, microphone, and sensors. The Raspberry Pi also manages system logic, application execution, and communication between all hardware components.</p>
+          </div>
+          <div style="background: white; padding: 24.64px; border-radius: 21.12px; box-shadow: 0 30.8px 70.4px rgba(0,0,0,0.15), 0 10.56px 21.12px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 14.08px; display: flex; align-items: center; justify-content: center; margin-bottom: 14.08px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/550ebd02bd8eaf1ec39203b9d0f13fcedded9bba/7527425-removebg-preview.png" alt="microSD Card" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 17.6px; font-weight: 700; margin-bottom: 8.8px; color: #000;">microSD Card (32–64 GB)</h4>
+            <p style="font-size: 13.2px; color: #6b7280; line-height: 1.6;">The microSD card serves as the primary storage medium for the Raspberry Pi. It contains the Linux operating system, system configuration files, and application software required to boot and operate the smart glasses system. The storage capacity supports both system software and experimental applications during development.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Display & Optics -->
+      <div style="margin-bottom: 70.4px;">
+        <h3 class="hw-section-title">
+          Display & Optics:
+        </h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 21.12px;">
+          <div style="background: white; padding: 24.64px; border-radius: 21.12px; box-shadow: 0 30.8px 70.4px rgba(0,0,0,0.15), 0 10.56px 21.12px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 14.08px; display: flex; align-items: center; justify-content: center; margin-bottom: 14.08px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/fa6a52ecaed813cd6267f5566702a29e17c64feb/ChatGPT_Image_Dec_19__2025__02_54_34_PM-removebg-preview.png" alt="Micro-OLED Display" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 17.6px; font-weight: 700; margin-bottom: 8.8px; color: #000;">2× Near-Eye Micro-OLED Displays</h4>
+            <p style="font-size: 13.2px; color: #6b7280; line-height: 1.6;">The near-eye micro-OLED displays serve as the primary visual output devices for the smart glasses system. Each display generates a high-resolution image for one eye, which is then optically redirected into the user's field of view. Their compact size and flexible ribbon connections allow them to be integrated within the glasses frame while supporting close-range viewing.</p>
+          </div>
+          <div style="background: white; padding: 24.64px; border-radius: 21.12px; box-shadow: 0 30.8px 70.4px rgba(0,0,0,0.15), 0 10.56px 21.12px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 14.08px; display: flex; align-items: center; justify-content: center; margin-bottom: 14.08px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/9cf48a23b42b11c0cb85bbf7b35ff64c08bbffff/61wzr1An3uL-removebg-preview.png" alt="HDMI Splitter" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 17.6px; font-weight: 700; margin-bottom: 8.8px; color: #000;">HDMI 1×2 Splitter</h4>
+            <p style="font-size: 13.2px; color: #6b7280; line-height: 1.6;">The HDMI splitter duplicates a single video output from the Raspberry Pi and delivers the same signal to both display driver boards. This enables synchronized visual output across the two near-eye displays without requiring separate video sources.</p>
+          </div>
+          <div style="background: white; padding: 24.64px; border-radius: 21.12px; box-shadow: 0 30.8px 70.4px rgba(0,0,0,0.15), 0 10.56px 21.12px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 14.08px; display: flex; align-items: center; justify-content: center; margin-bottom: 14.08px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/f66103990475121ff69bb578072862c7ad92b011/ChatGPT%20Image%20Dec%2019%2C%202025%2C%2003_26_41%20PM.png" alt="Magnifying Lenses" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 17.6px; font-weight: 700; margin-bottom: 8.8px; color: #000;">2× Eyepiece / Magnifying Lenses</h4>
+            <p style="font-size: 13.2px; color: #6b7280; line-height: 1.6;">The eyepiece lenses are used to magnify and refocus the images produced by the micro-OLED displays. By adjusting the apparent focal distance of the display, these lenses allow the virtual image to appear clear and comfortably viewable within a near-eye, glasses-mounted system.</p>
+          </div>
+          <div style="background: white; padding: 24.64px; border-radius: 21.12px; box-shadow: 0 30.8px 70.4px rgba(0,0,0,0.15), 0 10.56px 21.12px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 14.08px; display: flex; align-items: center; justify-content: center; margin-bottom: 14.08px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/11d39bf153ee69fc78727e14a286e9994c16ceca/Compact_OLED_driver_board_close-up-removebg-preview.png" alt="Display Controller" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 17.6px; font-weight: 700; margin-bottom: 8.8px; color: #000;">Display Controller / Driver Boards</h4>
+            <p style="font-size: 13.2px; color: #6b7280; line-height: 1.6;">The display controller boards act as the interface between the Raspberry Pi and the micro-OLED display panels. They convert incoming HDMI video signals into the appropriate format required by the displays and supply the necessary control and power signals to ensure stable image rendering.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input & Sensing -->
+      <div style="margin-bottom: 70.4px;">
+        <h3 class="hw-section-title">
+          Input & Sensing:
+        </h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 21.12px;">
+          <div style="background: white; padding: 24.64px; border-radius: 21.12px; box-shadow: 0 30.8px 70.4px rgba(0,0,0,0.15), 0 10.56px 21.12px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 14.08px; display: flex; align-items: center; justify-content: center; margin-bottom: 14.08px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/b56ce9ee2bae8c5face3fc12cab42f2c586b564b/STANDARD_TOP__27694.1673199142__55630-removebg-preview.png" alt="Raspberry Pi Camera Module v3" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 17.6px; font-weight: 700; margin-bottom: 8.8px; color: #000;">Camera Module (Pi Camera v3 or USB)</h4>
+            <p style="font-size: 13.2px; color: #6b7280; line-height: 1.6;">The camera module provides visual input for the smart glasses system and is used to capture hand movement and environmental data. Mounted near the bridge of the glasses frame, the camera enables gesture-based interaction and computer vision experiments, with image data processed directly by the Raspberry Pi.</p>
+          </div>
+          <div style="background: white; padding: 24.64px; border-radius: 21.12px; box-shadow: 0 30.8px 70.4px rgba(0,0,0,0.15), 0 10.56px 21.12px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 14.08px; display: flex; align-items: center; justify-content: center; margin-bottom: 14.08px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/04e36e16f905b75d565a25a61cc2b4046a0f96af/ChatGPT_Image_Dec_19__2025__05_22_09_PM-removebg-preview.png" alt="USB Lavalier Microphone" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 17.6px; font-weight: 700; margin-bottom: 8.8px; color: #000;">Microphone (USB or MEMS-based)</h4>
+            <p style="font-size: 13.2px; color: #6b7280; line-height: 1.6;">The microphone is used to capture near-field speech for voice-based interaction with the system. In the current prototype, a compact USB lavalier microphone connects directly to the Raspberry Pi to support voice commands and basic navigation. Future iterations may transition to a MEMS microphone integrated into the frame to improve form factor and power efficiency.</p>
+          </div>
+          <div style="background: white; padding: 24.64px; border-radius: 21.12px; box-shadow: 0 30.8px 70.4px rgba(0,0,0,0.15), 0 10.56px 21.12px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 220px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 14.08px; display: flex; align-items: center; justify-content: center; margin-bottom: 14.08px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/9b526becdc3539772224fb86e1e94f734537897c/mpu-6050-3-axis-accelerometer-and-i2c-gyroscope--removebg-preview.png" alt="MPU-6050 IMU" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 17.6px; font-weight: 700; margin-bottom: 8.8px; color: #000;">Optional IMU (Head Motion / Orientation)</h4>
+            <p style="font-size: 13.2px; color: #6b7280; line-height: 1.6;">The inertial measurement unit (IMU) provides head motion and orientation data by measuring acceleration and rotational movement. This sensor supports experimental features such as head-based cursor control, interface stabilization, and context-aware interaction. While optional, the IMU adds realism and expands the range of interaction methods available in the system.</p>
+          </div>
+        </div>
+      </div>
+            <!-- Power & Connectivity -->
+      <div style="margin-bottom: 80px;">
+        <h3 class="hw-section-title">
+          Power & Connectivity:
+        </h3>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+          <div style="background: white; padding: 28px; border-radius: 24px; box-shadow: 0 35px 80px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 250px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/1b539606038654e1104aefc27ccd9e9114f4cb79/Untitled_design-removebg-preview.png" alt="USB-C Power Bank" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #000;">USB-C Power Bank (5V output)</h4>
+            <p style="font-size: 15px; color: #6b7280; line-height: 1.6;">The USB-C power bank serves as the portable power source for the smart glasses system. It provides regulated 5V power to the Raspberry Pi, enabling untethered operation during testing and demonstrations. Using an external power bank allows the system to be powered reliably without integrating custom battery management hardware during early prototyping.</p>
+          </div>
+          <div style="background: white; padding: 28px; border-radius: 24px; box-shadow: 0 35px 80px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 250px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/56ffd2534a9c4486fb4d58c7807f6f7d73800bf0/ScreenShot_2025-12-19_at_6.04.25_PM-removebg-preview.png" alt="USB-C Power Cable" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #000;">USB-C Power Cable</h4>
+            <p style="font-size: 15px; color: #6b7280; line-height: 1.6;">The USB-C power cable delivers power from the power bank to the Raspberry Pi. This connection supplies the primary operating power for the system, allowing the Raspberry Pi to distribute power to connected peripherals such as displays, sensors, and input devices.</p>
+          </div>
+          <div style="background: white; padding: 28px; border-radius: 24px; box-shadow: 0 35px 80px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 250px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/a4355e6760eb5ca88de4138c2e507529de0d5eed/2l-7d02h.cables.hdmi-cables.45-removebg-preview.png" alt="HDMI Cables" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #000;">HDMI Cables (Short / Flexible)</h4>
+            <p style="font-size: 15px; color: #6b7280; line-height: 1.6;">Short, flexible HDMI cables are used to connect the Raspberry Pi to the HDMI splitter and from the splitter to the display driver boards. Their reduced length and flexibility help minimize bulk, improve cable routing within the prototype, and support clean integration with the glasses frame.</p>
+          </div>
+          <div style="background: white; padding: 28px; border-radius: 24px; box-shadow: 0 35px 80px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.1);">
+            <div style="width: 100%; height: 250px; background: linear-gradient(180deg, #eef1f7, #f8f9fb); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; overflow: hidden;">
+              <img src="https://raw.githubusercontent.com/kevendiab/image/967d6adf9c9c22c2a4092ad8d5f0ce4f374b5df7/611xXUUGN0L-removebg-preview.png" alt="Camera Ribbon Cable" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #000;">Camera Ribbon Cable</h4>
+            <p style="font-size: 15px; color: #6b7280; line-height: 1.6;">The camera ribbon cable connects the camera module to the Raspberry Pi’s camera interface. Its thin, flexible design allows the cable to be routed through the glasses frame while maintaining a reliable high-speed data connection for image capture and processing.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mechanical & Mounting -->
+      <div>
+        <h3 class="hw-section-title">
+          Mechanical & Mounting:
+        </h3>
+        
+        <p style="font-size: 17px; color: #4b5563; line-height: 1.7; margin-bottom: 32px; max-width: 1000px;">
+          The mechanical structure of the system focuses on supporting early-stage prototyping and iterative design rather than a finalized consumer form factor. The goal is to create a wearable platform that allows displays, optics, and sensors to be securely positioned while enabling rapid adjustments during testing.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+          <div style="background: white; padding: 28px; border-radius: 24px; box-shadow: 0 35px 80px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.1);">
+            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #000;">Glasses Frame / Head-Mounted Support</h4>
+            <p style="font-size: 15px; color: #6b7280; line-height: 1.6;">A modified glasses frame is used as the primary structural base for the system. The frame serves as a lightweight head-mounted platform for attaching near-eye displays, optical elements, and sensing hardware. This approach allows components to be positioned relative to the user's field of view while maintaining comfort and stability during use.</p>
+          </div>
+          <div style="background: white; padding: 28px; border-radius: 24px; box-shadow: 0 35px 80px rgba(0,0,0,0.15), 0 12px 24px rgba(0,0,0,0.1);">
+            <h4 style="font-size: 20px; font-weight: 700; margin-bottom: 10px; color: #000;">Custom Mounts / 3D-Printed Brackets</h4>
+            <p style="font-size: 15px; color: #6b7280; line-height: 1.6;">Custom-designed mounts and 3D-printed brackets are used to secure and align individual components within the frame. These mounts enable precise positioning of lenses and displays, support sensor placement, and provide mechanical stability while allowing for rapid redesign and iteration as the system evolves.</p>
+          </div>
+        </div>
+
+        <p style="font-size: 15px; color: #6b7280; line-height: 1.6; margin-top: 24px; font-style: italic;">
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+<!-- SYSTEM ASSEMBLY SECTION -->
+  <section style="padding: 80px 100px; background: #ffffff;">
+<div style="max-width: 1400px; margin: 0 auto;">
+  <div class="steps-box">
+      <h2 style="font-size: 44px; font-weight: 800; margin-bottom: 40px; color: #000; text-align: center;">
+        Design Direction: System Assembly
+      </h2>
+
+      <div style="max-width: 1000px; margin: 0 auto;">
+        
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 1: Raspberry Pi Operating System Setup</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            The system will be built around a Raspberry Pi, which will serve as the central compute unit. A Linux-based operating system will be installed on a microSD card using an imaging tool prior to hardware integration. This operating system will provide the environment for display output, peripheral communication, and application execution. Once installed, the microSD card will be inserted into the Raspberry Pi, and the system will be powered on to verify successful boot and basic functionality.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 2: HDMI Video Output Configuration</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            After the Raspberry Pi is operational, its HDMI output will be used as the primary video interface for the near-eye displays. A short HDMI cable will connect the Raspberry Pi to an HDMI 1×2 splitter. This splitter will duplicate the video signal, allowing identical video output to be delivered to two independent display subsystems.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 3: Display Driver Board Integration</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            Each output of the HDMI splitter will be connected to a dedicated display driver board. These driver boards function as the interface between the HDMI video signal and the micro-OLED display panels. The driver boards will handle video signal conversion, display timing, and power regulation required for stable operation of the displays.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 4: Micro-OLED Display Connection</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            Each micro-OLED display panel will be connected to its corresponding driver board using a flexible ribbon cable. These ribbon connections enable compact routing within the glasses frame while maintaining reliable electrical contact. The displays will be mounted inside the frame near the temples, where they can be paired with optical components while minimizing obstruction of the user's direct line of sight.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 5: Optical Subsystem Assembly</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            Optical elements, such as magnifying lenses or prisms, will be positioned in front of each micro-OLED display. These optics will redirect and focus the display image into the user's field of view, creating the perception of a virtual image located at a comfortable viewing distance. The alignment between the display and optics will be adjusted to optimize clarity, focus, and viewing comfort.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 6: Camera and Vision Sensor Integration</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            A Raspberry Pi camera module or compact USB camera will be mounted near the bridge of the glasses frame to capture a forward-facing view. This camera will be connected to the Raspberry Pi through either a dedicated camera ribbon interface or a USB port. The camera will provide visual input for gesture recognition and environment sensing, with image data processed directly on the Raspberry Pi.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 7: Additional Sensor Integration (IMU)</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            An optional inertial measurement unit (IMU) will be incorporated to capture head motion and orientation data. The IMU will be mounted within the glasses frame and connected to the Raspberry Pi using a low-speed digital communication interface such as I²C. This sensor data will support experimentation with head-based interaction and display stabilization techniques.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 8: Audio Input Integration</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            A compact USB microphone will be connected to one of the Raspberry Pi's USB ports to enable voice input. During early prototyping, the microphone may be positioned externally to ensure clear audio capture, with the option to integrate it more tightly into the frame in later iterations.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 9: Power Supply and Distribution</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            Power will be supplied using a portable USB-C power bank capable of delivering regulated 5V output. The power bank will connect directly to the Raspberry Pi via a USB power cable. Once powered, the Raspberry Pi will supply power to all connected peripherals, including the HDMI splitter, display driver boards, camera, microphone, and sensors, ensuring a centralized and simplified power distribution architecture.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 10: Mechanical Integration and Cable Routing</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            All electronic components will be mechanically secured using a glasses frame and custom mounts or 3D-printed brackets. Internal cables, including HDMI, ribbon, and power connections, will be routed through the temples of the frame to minimize clutter and maintain balance. Care will be taken to reduce strain on connectors and preserve user comfort.
+          </p>
+        </div>
+
+        <div style="margin-bottom: 48px;">
+          <h3 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: #000;">Step 11: System Validation and Iteration</h3>
+          <p style="font-size: 17px; color: #4b5563; line-height: 1.7;">
+            Once the system is fully assembled, functional testing will be performed to confirm successful video output on both displays, proper camera operation, sensor communication, and stable power delivery. Observations from testing will guide iterative adjustments to both the mechanical layout and electrical integration to improve reliability and usability.
+          </p>
+        </div>
+        </div> <!-- end steps-box -->
+      </div>
+
+    </div>
+  </section>
+
+<!-- CONTACT US SECTION -->
+<section
+  id="contact"
+  style="
+    position: relative;
+    padding: 20px 0 40px;
+    background: #0a0a0a;
+    overflow: hidden;
+  "
+>
+
+  <!-- GRID BACKGROUND -->
+  <div style="
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px);
+    background-size: 48px 48px;
+    animation: gridMove 16s linear infinite;
+    z-index: 0;
+  "></div>
+
+  <!-- LEFT LOGO (BIGGER + CLOSER) -->
+<img
+  src="https://raw.githubusercontent.com/kevendiab/image/1bc0eae23877950095d032d94dcd59e9e9c10d84/Untitled_design-removebg-preview%20(1).png"
+  style="
+    position: absolute;
+    left: -95px;
+    top: 55%;                 /* moved down ~10% */
+    height: 500px;
+    opacity: 0.95;
+    transform: translateY(-50%);
+    animation: floatY 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  "
+/>
+
+
+  <!-- RIGHT LOGO (BIGGER + CLOSER) -->
+<img
+  src="https://raw.githubusercontent.com/kevendiab/image/ba7e73b69f2c35498b89c35bc131fd7c5ea5fe18/Untitled_design__2_-removebg-preview.png"
+  style="
+    position: absolute;
+    right: -95px;
+    top: 55%;                 /* moved down ~10% */
+    height: 500px;
+    opacity: 0.95;
+    transform: translateY(-50%);
+    animation: floatY 6s ease-in-out infinite reverse;
+    pointer-events: none;
+    z-index: 1;
+  "
+/>
+
+
+
+  <!-- CONTENT -->
+  <div style="
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+  ">
+
+    <h2 style="
+      color: white;
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    ">
+      CONTACT US
+    </h2>
+
+    <!-- ANIMATED LINE -->
+    <div style="
+      width: 90px;
+      height: 4px;
+      background: white;
+      margin: 0 auto 26px;
+      animation: pulseLine 2s ease-in-out infinite;
+    "></div>
+
+    <!-- FORM CARD -->
+    <div style="
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      border-radius: 22px;
+      padding: 30px;
+      border: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    ">
+
+      <form
+  action="https://formspree.io/f/meejekrj"
+  method="POST"
+  style="display: flex; flex-direction: column; gap: 18px;"
+>
+
+  <div style="text-align: left;">
+    <label style="color: white; font-size: 15px; font-weight: 600;">Your Name</label>
+    <input
+      type="text"
+      name="name"
+      required
+      style="width:100%; margin-top:6px; padding:12px 16px; border-radius:12px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.35); color:white;"
+    >
+  </div>
+
+  <div style="text-align: left;">
+    <label style="color: white; font-size: 15px; font-weight: 600;">Your Email</label>
+    <input
+      type="email"
+      name="email"
+      required
+      style="width:100%; margin-top:6px; padding:12px 16px; border-radius:12px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.35); color:white;"
+    >
+  </div>
+
+  <div style="text-align: left;">
+    <label style="color: white; font-size: 15px; font-weight: 600;">Your Message</label>
+    <textarea
+      name="message"
+      rows="4"
+      required
+      style="width:100%; margin-top:6px; padding:12px 16px; border-radius:12px; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.35); color:white; resize:none;"
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    style="margin-top:10px; padding:14px; font-size:15px; font-weight:800; background:white; color:black; border-radius:12px; border:none;"
+  >
+    SEND MESSAGE
+  </button>
+
+    </form>
+    </div>
+  </div>
+</section>
+
+<style>
+@keyframes floatY {
+  0%,100% { transform: translateY(-50%) translateY(0); }
+  50% { transform: translateY(-50%) translateY(-18px); }
+}
+@keyframes pulseLine {
+  0%,100% { width:90px; opacity:1; }
+  50% { width:140px; opacity:0.5; }
+}
+@keyframes gridMove {
+  from { background-position: 0 0; }
+  to { background-position: 48px 48px; }
+}
+</style>
