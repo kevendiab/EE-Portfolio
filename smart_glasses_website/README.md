@@ -1,4 +1,4 @@
-## Smart Glasses Capstone
+## Smart Glasses
 
 Folder: `smart_glasses_website/`
 
