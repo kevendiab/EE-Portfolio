@@ -46,7 +46,7 @@ Designed and tested an audio amplifier circuit.
 
 ---
 
-### Smart Glasses Capstone
+### Smart Glasses
 
 Folder: `smart_glasses_website/`
 
